@@ -1,0 +1,13 @@
+package com.tinyblog.springboot.jdbctemplate;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TinyblogSpringbootJdbctemplateApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(TinyblogSpringbootJdbctemplateApplication.class, args);
+    }
+
+}
