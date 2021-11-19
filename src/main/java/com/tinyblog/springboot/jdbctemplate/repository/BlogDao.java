@@ -16,8 +16,8 @@ public interface BlogDao {
     Blog findById(Long id);
     
     List<Blog> findByTitle(String title);
-    
-    int save(Blog blog);
+
+    Long save(Blog blog);
     
     int update(Blog blog);
 }

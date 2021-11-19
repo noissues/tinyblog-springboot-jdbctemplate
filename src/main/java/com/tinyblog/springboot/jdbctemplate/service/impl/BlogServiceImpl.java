@@ -17,10 +17,12 @@ public class BlogServiceImpl implements BlogService {
     private BlogDao blogDao;
 
     @Override
-    public int create(Blog blog) {
+    public Blog create(Blog blog) {
         if (blog.getStatus() == null)
             blog.setStatus(BlogStatus.DRAFT.ordinal());
-        return blogDao.save(blog);
+        Long id = blogDao.save(blog);
+        blog.setId(id);
+        return blog;
     }
 
     @Override

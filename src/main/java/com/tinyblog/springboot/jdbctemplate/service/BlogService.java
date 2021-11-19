@@ -7,7 +7,7 @@ import com.tinyblog.springboot.jdbctemplate.model.Blog;
 
 
 public interface BlogService {
-    int create(Blog blog);
+    Blog create(Blog blog);
     List<Blog> getBlogsByCondition(Map<String, Object> param);
     Blog getBlogById(Long id);
     int update(Blog blog);

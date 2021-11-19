@@ -9,6 +9,7 @@ import com.tinyblog.springboot.jdbctemplate.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
 public class BlogController {
@@ -52,9 +53,9 @@ public class BlogController {
     }
 
     @PostMapping("/blog")
-    public ResponseEntity<String> createBlog(@RequestBody Blog blog) {
-        blogService.create(blog);
-        return new ResponseEntity<>("Blog was created successfully.", HttpStatus.CREATED);
+    public ResponseEntity<Blog> createBlog(@RequestBody Blog blog) {
+        Blog newBlog = blogService.create(blog);
+        return new ResponseEntity<>(newBlog, HttpStatus.CREATED);
     }
 
     @PutMapping("/blog/{id}")
