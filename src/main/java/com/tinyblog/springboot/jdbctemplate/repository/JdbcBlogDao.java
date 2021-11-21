@@ -102,6 +102,7 @@ public class JdbcBlogDao implements BlogDao {
     public int update(Blog blog) {
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(blog);
         return namedParameterJdbcTemplate.update(
-            "UPDATE blog SET title=:title, description=:description, status=:status WHERE id=:id", namedParameters);
+            "UPDATE blog SET title=:title, description=:description, status=:status, content=:content WHERE id=:id", 
+            namedParameters);
     }
 }
